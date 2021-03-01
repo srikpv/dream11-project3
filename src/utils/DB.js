@@ -1,6 +1,6 @@
 import axios from "axios";
 
-//const url = (process.env.NODE_ENV === "development" ? "" : "https://dream11-project2.herokuapp.com");
+const url = (process.env.NODE_ENV === "development" ? "" : "https://dream11-project2.herokuapp.com");
 //const url = process.env.REACT_APP_API_URL;
 const myHeaders = new Headers({
     'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ const myHeaders = new Headers({
 export default {
   getPlayers: function() {
     return axios
-    .get("/api/all/players", {
+    .get(url + "/api/all/players", {
         headers : myHeaders,
     })
       .then(res => {
