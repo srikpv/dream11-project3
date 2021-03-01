@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/dream11-project3/static/css/main.e28714c7.chunk.css",
+    "main.js": "/dream11-project3/static/js/main.d3dfb1f6.chunk.js",
+    "main.js.map": "/dream11-project3/static/js/main.d3dfb1f6.chunk.js.map",
+    "runtime-main.js": "/dream11-project3/static/js/runtime-main.cd8d00e1.js",
+    "runtime-main.js.map": "/dream11-project3/static/js/runtime-main.cd8d00e1.js.map",
+    "static/css/2.0a49d93f.chunk.css": "/dream11-project3/static/css/2.0a49d93f.chunk.css",
+    "static/js/2.1a923b18.chunk.js": "/dream11-project3/static/js/2.1a923b18.chunk.js",
+    "static/js/2.1a923b18.chunk.js.map": "/dream11-project3/static/js/2.1a923b18.chunk.js.map",
+    "static/js/3.fec7dab7.chunk.js": "/dream11-project3/static/js/3.fec7dab7.chunk.js",
+    "static/js/3.fec7dab7.chunk.js.map": "/dream11-project3/static/js/3.fec7dab7.chunk.js.map",
+    "index.html": "/dream11-project3/index.html",
+    "static/css/2.0a49d93f.chunk.css.map": "/dream11-project3/static/css/2.0a49d93f.chunk.css.map",
+    "static/css/main.e28714c7.chunk.css.map": "/dream11-project3/static/css/main.e28714c7.chunk.css.map",
+    "static/js/2.1a923b18.chunk.js.LICENSE.txt": "/dream11-project3/static/js/2.1a923b18.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd8d00e1.js",
+    "static/css/2.0a49d93f.chunk.css",
+    "static/js/2.1a923b18.chunk.js",
+    "static/css/main.e28714c7.chunk.css",
+    "static/js/main.d3dfb1f6.chunk.js"
+  ]
+}
