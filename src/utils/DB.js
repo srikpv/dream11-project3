@@ -15,15 +15,16 @@ export default {
     })
       .then(res => {
         const players = res.data.players;
-        return players.map(player => {
-          return {
-            id : player.id,
-            name : player.name,
-            country : player.country,
-            dob : player.dob,
-            cost : player.cost
-          }
-        });
+        console.log(players);
+        // return players.map(player => {
+        //   return {
+        //     id : player.id,
+        //     name : player.name,
+        //     country : player.country,
+        //     dob : player.dob,
+        //     cost : player.cost
+        //   }
+        // });
       });
   }
 };
