@@ -25,5 +25,26 @@ export default {
           }
         });
       });
+  },
+  getTeams: function() {
+    return axios
+    .get(url + "/api/all/teams", {
+      headers : myHeaders,
+    })
+    .then(res => {
+      console.log ("return", res);
+      return res;
+    })
+  },
+  putNewGame: function(data) {
+    console.log ("api call ", data);
+    return axios
+    .put(url + "/api/new/game", data);
+  },
+  getGame: function(id) {
+    return axios
+    .get(url + "/api/game/"+id, {
+      headers : myHeaders,
+    })
   }
 };
