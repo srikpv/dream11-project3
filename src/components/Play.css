@@ -1,0 +1,64 @@
+h4 {
+    margin-left: 5px;
+}
+.col-sm-4 {
+    background-color: rgba(11, 162, 51, 0.884);
+    top:        35px;
+    border-color: salmon;
+    border-style: solid;
+    border-radius: 15px;
+
+    margin-right: 0%;
+}
+
+.col-sm-8 {
+    background-color: rgba(11, 162, 51, 0.884);
+    top:        35px;
+    border-color: salmon;
+    border-style: solid;
+    border-radius: 15px;
+
+    margin-right: 0%;
+}
+
+.col-lg-4 {
+    background-color: gray;
+    border-color: salmon;
+    border-style: solid;
+    border-radius: 15px;
+    margin-top: -2%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+
+.home-check-space {
+    position: absolute;
+    margin-top: 8px;
+    left: 200px;
+}
+
+
+.homeTxt-check-space {
+    position: absolute;
+    left: 215px;
+}
+
+.opp-check-space {
+    position: absolute;
+    margin-top: 8px;
+    left: 280px;
+}
+
+.oppTxt-check-space {
+    position: absolute;
+    left: 295px;
+}
+
+.btn-play{
+    position: relative;
+    background-color: green;
+    margin-left: 110px;
+    margin-top: 10%;
+}

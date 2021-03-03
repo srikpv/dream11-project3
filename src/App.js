@@ -1,6 +1,7 @@
 import {useEffect} from "react";
 import './App.css';
 import Players from "./components/Players";
+import Play from "./components/Play";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 
@@ -27,7 +28,7 @@ function App() {
         <li><a href="#Play">Play</a></li>
         <li><a href="#Wins">Wins</a></li>
         </ul>
-        <Players />
+        <Play />
     </div>
     );
 }
