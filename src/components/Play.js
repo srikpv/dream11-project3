@@ -11,7 +11,7 @@ function Play() {
         oppTeam: ""
     });
     const [gameData, setGameData] = useState({
-        gameId: 40,
+        gameId: 1,
         game: ""
     });
 
@@ -72,8 +72,7 @@ function Play() {
         );
     }
 
-return (
-    
+return (  
     <div className="row">
         <div className="col-sm-4">
         <h5> Select 2 teams to play a game</h5>
@@ -84,20 +83,20 @@ return (
                 {teams.map(item => {
                     return (
                         <div className="column">
-                            <li key={item._id}>
-                            <label>{item.name}
-                            <input type="checkbox" id="hometeam" className="home-check-space"
+                            <label>{item.name}</label>
+                            <label  className="homeTxt-check-space">
+                            <input class="with-gap" type="radio" name="hometeam" className="home-check-space"
                                 value={item._id}
                             onChange={e => setGameTeams({...gameTeams,homeTeam:item.id})}/>
-                            <label  className="homeTxt-check-space"> Home </label>
-                            
-                            <input type="checkbox" id="oppteam" className="opp-check-space"
+                            <span>Home </span>
+                            </label>
+
+                            <label  className="oppTxt-check-space">
+                            <input class="with-gap" type="radio" name="oppoteam" className="opp-check-space"
                                 value={item._id}
                             onChange={e => setGameTeams({...gameTeams,oppTeam:item.id})}/>
-                            <label  className="oppTxt-check-space"> Opp </label>
+                            <span> Opp </span>
                             </label>
-                            
-                        </li>
                         </div>
                     )
                 })}
@@ -124,7 +123,7 @@ return (
                         {gameData.game.home_team_players.map(item => {
                         return (
                             <div className="column">
-                                <li> {item.player_id} {item.player.name} {item.score}
+                                <li>{item.player.name} {item.score}
                                 </li>
                             </div>
                         )
@@ -140,7 +139,7 @@ return (
                         {gameData.game.opp_team_players.map(item => {
                         return (
                             <div className="column">
-                                <li> {item.player_id} {item.player.name} {item.score}
+                                <li>{item.player.name} {item.score}
                                 </li>
                             </div>
                         )

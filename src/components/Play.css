@@ -2,7 +2,7 @@ h4 {
     margin-left: 5px;
 }
 .col-sm-4 {
-    background-color: rgba(11, 162, 51, 0.884);
+    background-color: lightgrey;
     top:        35px;
     border-color: salmon;
     border-style: solid;
@@ -12,7 +12,7 @@ h4 {
 }
 
 .col-sm-8 {
-    background-color: rgba(11, 162, 51, 0.884);
+    background-color: lightgrey;
     top:        35px;
     border-color: salmon;
     border-style: solid;
@@ -22,7 +22,7 @@ h4 {
 }
 
 .col-lg-4 {
-    background-color: gray;
+    background-color: lightgray;
     border-color: salmon;
     border-style: solid;
     border-radius: 15px;
@@ -30,30 +30,6 @@ h4 {
     margin-bottom: 2%;
     margin-left: 1%;
     margin-right: 1%;
-}
-
-
-.home-check-space {
-    position: absolute;
-    margin-top: 8px;
-    left: 200px;
-}
-
-
-.homeTxt-check-space {
-    position: absolute;
-    left: 215px;
-}
-
-.opp-check-space {
-    position: absolute;
-    margin-top: 8px;
-    left: 280px;
-}
-
-.oppTxt-check-space {
-    position: absolute;
-    left: 295px;
 }
 
 .btn-play{
