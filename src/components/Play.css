@@ -1,10 +1,8 @@
-h4 {
-    margin-left: 5px;
-}
+
 .col-sm-4 {
     background-color: lightgrey;
-    top:        35px;
     border-color: salmon;
+    top:        35px;
     border-style: solid;
     border-radius: 15px;
 
@@ -13,8 +11,8 @@ h4 {
 
 .col-sm-8 {
     background-color: lightgrey;
-    top:        35px;
     border-color: salmon;
+    top:        25px;
     border-style: solid;
     border-radius: 15px;
 
@@ -22,11 +20,9 @@ h4 {
 }
 
 .col-lg-4 {
-    background-color: lightgray;
-    border-color: salmon;
     border-style: solid;
     border-radius: 15px;
-    margin-top: -2%;
+    margin-top: 0%;
     margin-bottom: 2%;
     margin-left: 1%;
     margin-right: 1%;
@@ -35,6 +31,17 @@ h4 {
 .btn-play{
     position: relative;
     background-color: green;
+    font-size: x-large;
     margin-left: 110px;
-    margin-top: 10%;
+    margin-top: 1%;
+    margin-bottom: 1%;;
+}
+
+.btn-reset{
+    position: relative;
+    background-color: salmon;
+    font-size: x-large;
+    margin-left: 110px;
+    margin-top: 1%;
+    margin-bottom: 1%;;
 }
