@@ -1,45 +1,22 @@
 
-.col-sm-4 {
-    background-color: lightgrey;
-    border-color: salmon;
-    top:        35px;
-    border-style: solid;
-    border-radius: 15px;
-
-    margin-right: 0%;
-}
-
-.col-sm-8 {
-    background-color: lightgrey;
-    border-color: salmon;
-    top:        25px;
-    border-style: solid;
-    border-radius: 15px;
-
-    margin-right: 0%;
-}
-
-.col-lg-4 {
-    border-style: solid;
-    border-radius: 15px;
-    margin-top: 0%;
-    margin-bottom: 2%;
-    margin-left: 1%;
-    margin-right: 1%;
+.row  {
+    background-color: rgba(198, 193, 193, 0.952) ; 
+    border-radius: 25px;
+ 
 }
 
 .btn-play{
     position: relative;
-    background-color: green;
+    background-color: grey;
     font-size: x-large;
-    margin-left: 110px;
+    margin-left: 0px;
     margin-top: 1%;
-    margin-bottom: 1%;;
+    margin-bottom: 5%;;
 }
 
 .btn-reset{
     position: relative;
-    background-color: salmon;
+    background-color: 33691e ;
     font-size: x-large;
     margin-left: 110px;
     margin-top: 1%;
