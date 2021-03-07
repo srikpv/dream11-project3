@@ -19,6 +19,10 @@ function Play() {
         loadTeams();
     }, []);
 
+    useEffect(() => {
+        loadGameData();
+    }, [gameData.gameId]);
+
     function getTeamName(teamId) {
         /* set the winning team name from team id */
         let winnerName = "";
@@ -55,7 +59,7 @@ function Play() {
         })
         .then(res => {
             console.log ("game id returned ",res.data.game.id);
-            loadGameData(res.data.game.id);
+            setGameData({...gameData,gameId:res.data.game.id});
         })
         .then(() => {
             console.log ("reset game teams");
@@ -68,14 +72,14 @@ function Play() {
         .catch(err => console.log(err));
     };
 
-    function loadGameData(gameIdToLoad) {
-        console.log ("loading game data for game ",gameIdToLoad);
-        if (gameIdToLoad) {
-            DB.getGame(gameIdToLoad)
+    function loadGameData() {
+        console.log ("loading game data for game ",gameData.gameId);
+        if (gameData.gameId) {
+            DB.getGame(gameData.gameId)
                 .then(res => {
                     console.log("new game data ",res.data.game);
                     const winningTeam = getTeamName(res.data.game.win_team_id);
-                    setGameData({gameId:gameIdToLoad,winningTeamName:winningTeam, game:res.data.game});
+                    setGameData({...gameData, winningTeamName:winningTeam, game:res.data.game});
                     console.log("set game data ",gameData);
                     }
                 )
@@ -86,8 +90,26 @@ function Play() {
         }
     };
 
-    function resetGame() {
-        setGameTeams({...gameTeams, homeTeam: "", oppTeam: ""});
+    function isHomeTeam(rowId) {
+        if (rowId === gameTeams.homeTeam)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    };
+
+    function isOppTeam(rowId) {
+        if (rowId === gameTeams.oppTeam)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 return (  
@@ -108,6 +130,7 @@ return (
                                 <label  className="homeTxt-check-space">
                                 <input class="with-gap" type="radio" name="hometeam" className="home-check-space"
                                 value={item._id}
+                                checked={isHomeTeam(item.id)}
                                 onClick={e => setGameTeams({...gameTeams,homeTeam:item.id})}/>
                                 <span>Home </span>
                                 </label>
@@ -117,6 +140,7 @@ return (
                                 <label  className="oppTxt-check-space">
                                 <input class="with-gap" type="radio" name="oppoteam" className="opp-check-space"
                                 value={item._id}
+                                checked={isOppTeam(item.id)}
                                 onClick={e => setGameTeams({...gameTeams,oppTeam:item.id})}/>
                                 <span> Opp </span>
                                 </label>
