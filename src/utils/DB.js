@@ -1,14 +1,18 @@
 import axios from "axios";
+import env from "react-dotenv";
+
 
 const url = (process.env.NODE_ENV === "development" ? "" : "https://dream11-project2.herokuapp.com");
-//const url = process.env.REACT_APP_API_URL;
+const cric_api_url_playerFinder = env.cric_api_url_playerFinder;
+const cric_api_url_playerStats = env.cric_api_url_playerStats;
+
 const myHeaders = new Headers({
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
   });
 // Export an object containing methods we'll use for accessing the random user API
 export default {
-  getPlayers: function() {
+  getAllPlayers: function() {
     return axios
     .get(url + "/api/all/players", {
         headers : myHeaders,
@@ -26,6 +30,51 @@ export default {
         });
       });
   },
+  
+  getPlayers: function(ids) {
+    return axios
+    .get(url + "/api/players/" + ids, {
+        headers : myHeaders,
+    })
+      .then(res => {
+        const players = res.data.players;
+        return players.map(player => {
+          return {
+            id : player.id,
+            name : player.name,
+            country : player.country,
+            dob : player.dob,
+            cost : player.cost
+          }
+        });
+      });
+  },
+
+  postNewGame : function(json_body){
+    return axios
+    .post(url + "api/new/team", json_body, {
+      headers : myHeaders,
+  })
+    .then(res => res.data);
+  },
+
+  getPlayerInfo: function(player_name){
+    return axios
+    .get(cric_api_url_playerFinder + player_name, {
+      headers : myHeaders,
+    })
+    .then(res => {
+      const player_id = res.data.data[0].pid;
+      return axios
+      .get(cric_api_url_playerStats + player_id, {
+        headers : myHeaders,
+      })
+      .then(res => {
+        return res.data;
+      });
+    })
+  },
+
   getTeams: function() {
     return axios
     .get(url + "/api/all/teams", {

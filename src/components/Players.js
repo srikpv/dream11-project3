@@ -8,6 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DB from "../utils/DB";
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 var players_data = [];
 
@@ -42,7 +44,7 @@ class Players extends React.Component {
     }
 
     componentDidMount(){
-        DB.getPlayers()
+        DB.getAllPlayers()
         .then(players => {
             players_data = players;
             this.setState({...this.state, data : players});
@@ -79,8 +81,6 @@ class Players extends React.Component {
         });
     }
     
-
-
     sortByProperty=(property, sort_order) => {  
         return function(a,b){  
            return (a[property] > b[property] ? (sort_order===0 ? 1 : -1) : (sort_order===0 ? -1 : 1));  
@@ -103,7 +103,7 @@ class Players extends React.Component {
                     </TableHead>
                     <TableBody>
                     <TableRow>
-                        <StyledTableCell align="right" style={{width: 50}}><input type="number" onChange={this.handleFilterChange} col_id="id" /></StyledTableCell>
+                        <StyledTableCell align="right" style={{width: 70}}><input type="number" onChange={this.handleFilterChange} col_id="id" /></StyledTableCell>
                         <StyledTableCell><input type="text" onChange={this.handleFilterChange} col_id="name" /></StyledTableCell>
                         <StyledTableCell><input type="text" onChange={this.handleFilterChange} col_id="country" /></StyledTableCell>
                         <StyledTableCell align="right"><input type="text" onChange={this.handleFilterChange} col_id="dob" /></StyledTableCell>
@@ -111,8 +111,13 @@ class Players extends React.Component {
                     </TableRow>
                     {this.state.data.map((row) => (
                         <StyledTableRow key={row.name}>
-                        <StyledTableCell component="th" scope="row" align="right" >{row.id}</StyledTableCell>
-                        <StyledTableCell>{row.name}</StyledTableCell>
+                        <StyledTableCell component="th" scope="row" align="left" >
+                            <FormControlLabel
+                                control={<Checkbox onChange={this.props.handlePlayersChange} inputProps={{ 'player_id': row.id }} />}
+                                label={row.id}
+                            />
+                        </StyledTableCell>
+                        <StyledTableCell><span style={{"cursor": "pointer"}} onClick={() => this.props.handlePlayerView(row.name)}>{row.name}</span></StyledTableCell>
                         <StyledTableCell>{row.country}</StyledTableCell>
                         <StyledTableCell align="right">{row.dob}</StyledTableCell>
                         <StyledTableCell align="right">{row.cost}</StyledTableCell>

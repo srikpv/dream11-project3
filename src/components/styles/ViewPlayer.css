@@ -1,0 +1,321 @@
+.pnl490M {
+	width: 550px;
+	_width: 454px;
+	border: 1px solid #bababa;
+	margin: 0px;
+	float: right;
+	padding: 10px 9px 10px 9px;
+	_padding: 10px 7px 10px 9px;
+	background: #fff;
+}
+
+.ciPlayernametxt {
+	border-bottom: 1px solid #b7b7b7;
+	width: 470px;
+	margin-bottom: 15px;
+	padding: 0px 5px 0px 0;
+	font-size: 16px;
+	color: #000;
+	display: table;
+}
+
+.ciPlayernametxt h1 {
+	font-size: 16px;
+	color: #000;
+	font-weight: bold;
+	margin: 0px;
+}
+
+.PlayersSearchLink {
+	font-size: 12px;
+	color: #999999;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+a.PlayersSearchLink:link,
+a.PlayersSearchLink:visited,
+a.PlayersSearchLink:active {
+	font-size: 12px;
+	color: #035BAC;
+	font-weight: normal;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	line-height: 150%;
+}
+
+a.PlayersSearchLink:hover {
+	font-size: 12px;
+	color: #000000;
+	font-weight: normal;
+	text-decoration: underline;
+	line-height: 150%;
+}
+
+.ciPlayerinformationtxt,
+.ciGrndinfoTxt {
+	font-size: 11px;
+	color: #666666;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-bottom: 8px;
+	padding: 0px;
+	line-height: 130%;
+}
+
+.ciGrndinfoTxt {
+	margin-bottom: 5px;
+}
+
+.ciPlayerinformationtxt span {
+	font-size: 11px;
+	color: #333333;
+}
+
+.ciPhotoWidgetLink {
+	font-size: 12px;
+	color: #666666;
+	font-weight: bold;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+a.ciPhotoWidgetLink:link,
+a.ciPhotoWidgetLink:visited,
+a.ciPhotoWidgetLink:active {
+	font-size: 12px;
+	color: #666666;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 12px;
+}
+
+a.ciPhotoWidgetLink:hover {
+	font-size: 12px;
+	color: #666666;
+	font-weight: bold;
+	text-decoration: underline;
+	line-height: 12px;
+}
+
+
+.engineTable {
+	width: 100%;
+	border-collapse: collapse;
+	padding: 0px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	line-height: normal;
+}
+
+.engineTable caption {
+	padding: 2px 3px 3px 3px;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #010101;
+	caption-side: top;
+	text-align: left;
+	background-color: #d9effd;
+	height: auto;
+}
+
+.engineTable thead {
+	background: url(https://i.imgci.com/espncricinfo/ptstblHead-bg.gif) left top repeat-x;
+}
+
+.engineTable th {
+	padding: 2px 3px 3px 3px;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #222222;
+	text-align: right;
+}
+
+.engineTable tr.head-height20 {
+	text-align: right;
+	vertical-align: middle;
+	height: 20px;
+	background: url(https://i.imgci.com/espncricinfo/ptstblHead-bg.gif) left top repeat-x;
+}
+
+.engineTable tr.head {
+	text-align: right;
+	vertical-align: middle;
+}
+
+.engineTable tr.headlinks {
+	text-align: right;
+	vertical-align: middle;
+	height: 21px;
+}
+
+.engineTable tr.title {
+	text-align: left;
+	vertical-align: bottom;
+}
+
+.engineTable tr.title td {
+	padding: 1px 3px 0px 3px;
+}
+
+.engineTable tr.data1,
+.engineTable tr.data2 {
+	text-align: right;
+	vertical-align: top;
+}
+
+.engineTable tr.data1 td {
+	border-bottom: 1px dotted #c6c6c6;
+}
+
+.engineTable tr.note {
+	text-align: left;
+	vertical-align: top;
+}
+
+.engineTable tr.note td {
+	padding: 0px 3px 1px 3px;
+	border-bottom: 1px dotted #c6c6c6;
+}
+
+.engineTable tr.height20 {
+	text-align: right;
+	vertical-align: center;
+	height: 20px;
+}
+
+.engineTable tr.height20 td {
+	border-bottom: 1px dotted #c6c6c6;
+}
+
+.engineTable td {
+	padding: 1px 3px 2px 3px;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #222222;
+}
+
+.engineTable td.left,
+.engineTable th.left {
+	text-align: left;
+}
+
+.engineTable td.padAst,
+.engineTable th.padAst {
+	padding-right: 9px;
+}
+
+.engineTable td.padDp1 {
+	padding-right: 9px;
+}
+
+.engineTable td.padDp2 {
+	padding-right: 15px;
+}
+
+.engineTable td.padTSw {
+	padding-right: 9px;
+}
+
+.engineTable td.padTSao,
+.engineTable th.padTS {
+	padding-right: 19px;
+}
+
+.engineTable td.padTSw-b {
+	padding-right: 10px;
+}
+
+.engineTable td.padTSao-b,
+.engineTable th.padTS-b {
+	padding-right: 23px;
+}
+
+.engineTable td.padDD {
+	padding: 1px 0px 1px 3px;
+}
+
+.engineTable td.divider {
+	padding: 0px 0px 0px 0px;
+	border-left: 1px solid #c6c6c6;
+}
+
+.engineTable th.divider {
+	padding: 0px 0px 0px 0px;
+}
+
+.engineTable a:link,
+.engineTable a:visited {
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #0068c3;
+}
+
+.engineTable a:hover {
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: underline;
+	color: #0068c3;
+}
+
+.engineTable a.black-link:link,
+.engineTable a.black-link:visited {
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #0B3766;
+}
+
+.engineTable a.black-link:hover {
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: underline;
+	color: #0B3766;
+}
+
+.engineTable a.data-link:link,
+.engineTable a.data-link:visited {
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #333333;
+}
+
+.engineTable a.data-link:hover {
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: underline;
+	color: #000000;
+}
+
+.engineTable td.padAst,
+.engineTable th.padAst {
+	padding-right: 9px;
+}
+
+.engineTable tr.data1,
+.engineTable tr.data2 {
+	text-align: right;
+	vertical-align: top;
+}
+
+.engineTable tr.data1 td {
+	border-bottom: 1px dotted #c6c6c6;
+}
+
+
+.engineTable td.padDp2 {
+	padding-right: 15px;
+}
+
+.engineTable td.padDp1 {
+	padding-right: 9px;
+}

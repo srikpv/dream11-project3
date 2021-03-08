@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.DivHeight93 {
+  height : 93vh;
+  overflow-y : scroll;
+}
+
+.DivHeight46 {
+  height : 46vh;
+  overflow-y : auto;
+}
+
+.DivHeight35 {
+  height : 35vh;
+  overflow-y : auto;
+}
