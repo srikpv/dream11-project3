@@ -95,5 +95,23 @@ export default {
     .get(url + "/api/game/"+id, {
       headers : myHeaders,
     })
+  },
+  getGamesbyId: function(id) {
+    return axios
+    .get(url + "/api/all/games/" + id, {
+      headers : myHeaders,
+    })
+  },
+  getUsers: function() {
+    return axios
+    .get(url + "/api/all/users", {
+      headers : myHeaders,
+    })
+  },
+  getTeamsbyId: function(id) {
+    return axios
+    .get(url + "/api/all/teams/" + id, {
+      headers : myHeaders,
+    })
   }
 };
