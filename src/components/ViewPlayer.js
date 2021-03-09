@@ -26,7 +26,7 @@ import "./styles/ViewPlayer.css";
             }
     else{
     return (
-        <div className="pnl490M" style={{'position' : 'relative', 'left' : '-70px'}}>
+        <div className="pnl490M" style={{'position' : 'relative', 'left' : '-80px'}}>
             <div className="ciPlayernametxt" style={{_width: "467px"}}>
                 <div style={{margin: "0", float: "left", paddingBottom: "3px"}}>
                 <h1>{player.fullName}<a href="/rss/content/story/feeds/379140.rss" id="rssIcon" style={{padding: "1px 0 0 0"}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>

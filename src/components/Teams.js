@@ -40,11 +40,11 @@ export default function Teams() {
     return (
         <div className='container-xl'>
             <div className='row'>
-                <div className='col s6 DivHeight93 overflow-scroll'>
+                <div className='col s5 DivHeight92 overflow-scroll'>
                     <Players handlePlayersChange={handlePlayersChange} handlePlayerView={handlePlayerView}/>
                 </div>
-                <div className='col s5'>
-                    <div className='row DivHeight46'>
+                <div className='col s6'>
+                    <div className='row DivHeight42'>
                         <ViewPlayer ref={viewPlayerRef}/>
                     </div>
                     <div className='row'>
