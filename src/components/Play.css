@@ -5,20 +5,3 @@
  
 }
 
-.btn-play{
-    position: relative;
-    background-color: grey;
-    font-size: x-large;
-    margin-left: 0px;
-    margin-top: 1%;
-    margin-bottom: 5%;;
-}
-
-.btn-reset{
-    position: relative;
-    background-color: 33691e ;
-    font-size: x-large;
-    margin-left: 110px;
-    margin-top: 1%;
-    margin-bottom: 1%;;
-}

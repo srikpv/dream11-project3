@@ -164,8 +164,8 @@ return (
                 <h6> Build teams to play</h6>
             )}
             
-            <button className="btn btn-play" className="btn-play" type="submit">
-                Play Game
+            <button class="btn waves-effect waves-light" name="action">Play Game
+                <i class="material-icons right">send</i>
             </button>
         </form>
         </div>
