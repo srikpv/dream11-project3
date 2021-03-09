@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.0",
     "axios": "^0.21.1",
+    "firebase": "^8.2.10",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -17,9 +18,9 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
-    "start": "react-dotenv && react-scripts start",
-    "build": "react-dotenv && react-scripts build",
-    "serve": "react-dotenv && serve build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "serve": "serve build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -40,9 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "react-dotenv": {
-    "whitelist": ["cric_api_url_playerFinder", "cric_api_url_playerStats"]
   },
   "devDependencies": {
     "gh-pages": "^3.1.0"

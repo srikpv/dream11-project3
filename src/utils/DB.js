@@ -1,10 +1,8 @@
 import axios from "axios";
-import env from "react-dotenv";
-
 
 const url = (process.env.NODE_ENV === "development" ? "" : "https://dream11-project2.herokuapp.com");
-const cric_api_url_playerFinder = env.cric_api_url_playerFinder;
-const cric_api_url_playerStats = env.cric_api_url_playerStats;
+const cric_api_url_playerFinder = process.env.REACT_APP_cric_api_url_playerFinder;
+const cric_api_url_playerStats = process.env.REACT_APP_cric_api_url_playerStats;
 
 const myHeaders = new Headers({
     'Content-Type': 'application/json',
