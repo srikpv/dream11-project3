@@ -39,11 +39,11 @@ const BuildTeam = forwardRef((props, ref) => {
     <>
     <form onSubmit={handleFormSubmit}>
         <div class="row">
-            <div className='col s10'>
+            <div className='col s9'>
           <input placeholder="Team Name" ref={team_name_ref} type="text" />
           </div>
-          <div className='col s2'>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <div className='col s3'>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Create
             <i class="material-icons right">send</i>
         </button>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Play.css";
+import "./styles/Play.css";
 import DB from "../utils/DB";
 
 function Play() {

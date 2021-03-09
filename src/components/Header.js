@@ -30,7 +30,8 @@ function Header() {
          </div>
        </nav>
         <ul id="slide-out" class="sidenav">
-        <li><Link to="/">Teams</Link></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/Teams">Teams</Link></li>
         <li><Link to="/Play">Play</Link></li>
         <li><Link to="/History">History</Link></li>
         </ul>

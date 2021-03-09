@@ -48,6 +48,29 @@ export default {
       });
   },
 
+  getTeamsWithWins: function(user_id) {
+    return axios
+    .get(url + "/api/all/teams_wins/" + user_id, {
+        headers : myHeaders,
+    })
+      .then(res => {
+        const teams = res.data.teams;
+        return teams.map(team => {
+          return {
+            "id": team.id,
+            "user_id": team.user_id,
+            "name": team.name,
+            "active": team.active,
+            "wins": team.wins,
+            "TotalGames": team.TotalGames,
+            "HomeGames": team.HomeGames,
+            "AwayGames": team.AwayGames,
+            "TotalWins": team.TotalWins
+          }
+        });
+      });
+  },
+
   postNewGame : function(json_body){
     return axios
     .post(url + "api/new/team", json_body, {
