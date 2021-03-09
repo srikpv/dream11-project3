@@ -73,7 +73,7 @@ export default {
 
   postNewGame : function(json_body){
     return axios
-    .post(url + "api/new/team", json_body, {
+    .post(url + "/api/new/team", json_body, {
       headers : myHeaders,
   })
     .then(res => res.data);
