@@ -80,7 +80,7 @@ import "./styles/ViewPlayer.css";
                 <tbody>
                 <tr className="data1">
                                     <td className="left" title="record rank: 1" nowrap="nowrap"><b>T20Is</b></td>
-                                                    <td nowrap="nowrap">8</td>
+                                                    <td nowrap="nowrap">4</td>
                                                     <td nowrap="nowrap">6</td>
                                                     <td nowrap="nowrap">2</td>
                                                     <td nowrap="nowrap">275</td>

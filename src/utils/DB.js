@@ -48,6 +48,20 @@ export default {
       });
   },
 
+  getUser: function(username) {
+    return axios
+    .get(url + "/api/user/" + username, {
+        headers : myHeaders,
+    })
+      .then(res => {
+        const user = res.data.user;
+        return {
+          "id" : user[0].id,
+          "username" : user[0].username,
+        };
+      });
+  },
+
   getTeamsWithWins: function(user_id) {
     return axios
     .get(url + "/api/all/teams_wins/" + user_id, {

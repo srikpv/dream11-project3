@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import DB from '../utils/DB';
-
+import { useAuth } from "../contexts/AuthContext"
 
 const useStyles = makeStyles({
   table: {
@@ -21,14 +21,18 @@ const useStyles = makeStyles({
 
 export default function Home() {
   const classes = useStyles();
-   
+  const { currentUser, logout } = useAuth();
+  const [user, setUser] = useState({id:0, username: ""});
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    const user_id = 1
-    DB.getTeamsWithWins(user_id)
-    .then(teams => setTeams(teams))
+    DB.getUser(currentUser.email)
+    .then(user => setUser(user));
     }, []);
+  useEffect(() => {
+      DB.getTeamsWithWins(user.id)
+      .then(teams => setTeams(teams))
+      }, [user]);
 
   return (
       <>
