@@ -27,29 +27,32 @@ const BuildTeam = forwardRef((props, ref) => {
       setPlayersState,
   }));
 
-  function handleFormSubmit(event){
-    event.preventDefault();
+  function ValidateForm(){
     error = false;
     error_message = "";
 
     if(players.length != 11){
-       error = true;
-       error_message = "Team should contain 11 players<br/>";
-    }
+          error = true;
+          error_message = "Team should contain 11 players<br/>";
+          }
     if(players.reduce((accumulator, currentValue) => accumulator + currentValue.cost, 0) > 60){
-      error = true;
-      error_message += "Maximum Cost allowed is 60 per team<br/>";
-   }
-   if(team_name_ref.current.value == ""){
-    error = true;
-    error_message += "Enter a team name";
- }
+          error = true;
+          error_message += "Maximum Cost allowed is 60 per team<br/>";
+          }
+    if(team_name_ref.current.value == ""){
+        error = true;
+        error_message += "Enter a team name";
+          }
+    return error;
+  }
 
-   if(error) {
+  function handleFormSubmit(event){
+    event.preventDefault();
+    
+    if(ValidateForm()) {
     alertRef.current.innerHTML = error_message;
     return;
-   }
-   
+    }
 
     var build_team = {};
     build_team.team = {};

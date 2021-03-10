@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { useAuth } from "../contexts/AuthContext"
 import DB from '../utils/DB';
@@ -9,25 +9,46 @@ function Header() {
   // from the react-router docs (https://reacttraining.com/react-router/web/api/Hooks/uselocation)
   // This allows the component to check the route any time the user uses a link to navigate.
   const location = useLocation();
+  const [error, setError] = useState("")
   const { currentUser, logout } = useAuth()
   const [user, setUser] = useState({id:0, username: ""});
+  const history = useHistory()
 
   useEffect(() => {
     let sidenav = document.querySelector('#slide-out');
     M.Sidenav.init(sidenav, {});
-    DB.getUser(currentUser.email)
-      .then(user => setUser(user));
   }, []);
 
+  useEffect(() => {
+    if(currentUser)
+      DB.getUser(currentUser.email)
+        .then(user => setUser(user));
+  }, [currentUser]);
+
+  async function handleLogout() {
+    setError("")
+
+    try {
+      await logout()
+      history.push("/login")
+    } catch {
+      setError("Failed to log out")
+    }
+  }
 
   return (
     <div className="App">
        <nav>
          <div className="container-xl">
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
                <li>
-                  <Link to="/">{user.username}</Link>
+                  <Link to="/">{currentUser && user.username}</Link>
+                </li>
+            </ul>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li>
+                  <a href="#" onClick={handleLogout}>{currentUser && 'Logout' }</a>
                 </li>
             </ul>
          </div>

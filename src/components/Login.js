@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -49,10 +50,10 @@ export default function Login() {
     try {
       setError("")
       setLoading(true)
-      //await login(emailRef.current.value, passwordRef.current.value)
+      await login(document.getElementById('email').value, document.getElementById('password').value)
       history.push("/")
-    } catch {
-      setError("Failed to log in")
+    } catch (err) {
+      setError("Failed to log in", err.message)
     }
 
     setLoading(false)
@@ -68,7 +69,7 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -97,6 +98,7 @@ export default function Login() {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
+          {error && <Alert color='error'>{error}</Alert>}
           <Button
             type="submit"
             fullWidth
