@@ -6,14 +6,14 @@ import Home from "./Home";
 import Header from "./Header";
 import Signup from "./SignUp";
 import Login from "./Login";
-import { Route, Switch, HashRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { AuthProvider }  from "../contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
 
 function App() {
 
    return (
-     <HashRouter basename='/'>
+     <Router>
        <AuthProvider>
          <Switch>
             <div>
@@ -27,7 +27,7 @@ function App() {
             </div>
           </Switch>
      </AuthProvider>
-   </HashRouter>
+   </Router>
      );
  }
 
