@@ -151,7 +151,7 @@ return (
                                 value={item._id}
                                 checked={isOppTeam(item.id)}
                                 onClick={e => setGameTeams({...gameTeams,oppTeam:item.id})}/>
-                                <span> Opp </span>
+                                <span> Visitor </span>
                                 </label>
                             </div>
                         </div>
