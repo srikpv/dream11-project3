@@ -10,8 +10,8 @@ class SearchResultContainer extends Component {
       games: [],
       teams: [],
       users: [],
-      home_team_id: "2",
-      userId: "1",
+      home_team_id: "",
+      userId: "",
     }; 
   } 
 
@@ -26,19 +26,6 @@ class SearchResultContainer extends Component {
       })    
     })
     .catch(err => console.log(err));
-
-    DB.getGamesbyId(this.state.home_team_id)
-      .then(res => {
-        this.setState({
-          games: res.data.games.map((e, i) => ({
-            homeTeam: e.home_team.name,
-            visitingTeam: e.opp_team.name,
-            winningTeam: ( e.home_team_id === e.win_team_id ? e.home_team.name : e.opp_team.name ),
-            key: i
-          }))
-        })     
-      })
-      .catch(err => console.log(err));
   };
 
   getTeams(userId) {
