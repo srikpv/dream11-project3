@@ -1,21 +1,41 @@
 import React, { useEffect, useState } from "react";
 import DB from "../utils/DB";
+import { useAuth } from "../contexts/AuthContext"
+
 
 function Play() {
     /* Pick teams to play a new game */
+    const [homeTeams, setHomeTeams] = useState([]);
+
     const [gameTeams, setGameTeams] = useState({
         teams:[],
-        homeTeam: "",
-        oppTeam: ""
+        homeTeam: 0,
+        oppTeam: 0
     });
+
     const [gameData, setGameData] = useState({
-        gameId:"",
+        gameId:0,
         winningTeamName:"",
-        homeTeamTotal:"",
-        oppTeamTotal:"",
+        homeTeamName:"",
+        oppTeamName:"",
+        homeTeamTotal:0,
+        oppTeamTotal:0,
         game: ""
     });
 
+    const { currentUser, logout } = useAuth();
+    const [user, setUser] = useState({id:0, username: ""});
+
+    useEffect(() => {
+        DB.getUser(currentUser.email)
+          .then(user => setUser(user));
+    }, []);
+
+    useEffect(() => {
+           DB.getTeamsWithWins(user.id)
+        .then(teams => setHomeTeams(teams))
+    }, [user]);
+  
     useEffect(() => {
         loadTeams();
     }, []);
@@ -37,7 +57,6 @@ function Play() {
     };
 
     function loadTeams() {
-        console.log("call server API to get team");
         DB.getTeams()
         .then(res => {
             console.log ("team call return ", res.data.teams);
@@ -63,12 +82,10 @@ function Play() {
             setGameData({...gameData,gameId:res.data.game.id});
         })
         .then(() => {
-            console.log ("reset game teams");
             setGameTeams({...gameTeams,
             homeTeam: "",
             oppTeam: ""
             });
-            console.log ("reset game teams after ", gameTeams);
         })
         .catch(err => console.log(err));
     };
@@ -80,6 +97,8 @@ function Play() {
                 .then(res => {
                     console.log("new game data ",res.data.game);
                     let winningTeam = getTeamName(res.data.game.win_team_id);
+                    let homeTeam = getTeamName(res.data.game.home_team_id);
+                    let oppTeam = getTeamName(res.data.game.opp_team_id);
                     let homeTotal = 0;
                     res.data.game.home_team_players.forEach (function (val) {
                         homeTotal +=val.score;
@@ -88,7 +107,7 @@ function Play() {
                     res.data.game.opp_team_players.forEach (function (val) {
                         oppTotal +=val.score;
                     })
-                    setGameData({...gameData, winningTeamName:winningTeam, homeTeamTotal:homeTotal, oppTeamTotal:oppTotal, game:res.data.game});
+                    setGameData({...gameData, winningTeamName:winningTeam, homeTeamName:homeTeam, homeTeamTotal:homeTotal, oppTeamName:oppTeam, oppTeamTotal:oppTotal, game:res.data.game});
                     console.log("set game data ",gameData);
                     }
                 )
@@ -96,6 +115,30 @@ function Play() {
         }
         else {
             console.log("no game played yet");
+        }
+    };
+
+    function isHomeTeams(rowId) {
+        var a = false;
+        homeTeams.forEach (function (team) {
+            if (team.id == rowId) {a=true;} else {};    
+        });        
+        return a;
+    };
+
+    function homeTeamButton(item) {
+        if (isHomeTeams(item.id)) {
+            return <span > Home </span>
+        }
+        else {
+        }
+    };
+
+    function oppTeamButton(item) {
+        if (isHomeTeams(item.id)) {
+        }
+        else {
+            return <span > Visitor </span>
         }
     };
 
@@ -125,6 +168,7 @@ return (
     <div className="row">
         <div className="col s6">
         <h5> Select 2 teams to play a game</h5>
+
         <form onSubmit={handlePlayGame}>
             {gameTeams.teams.length ? (
                 <div className="row">
@@ -133,15 +177,12 @@ return (
                     return (
                         <div className="row">
                             <div className="col s6">
-                                <span>{item.name}</span>
+                                <span>{ item.name}</span>
                             </div>
                             <div className="col s2">
                                 <label  className="homeTxt-check-space">
-                                <input class="with-gap" type="radio" name="hometeam" className="home-check-space"
-                                value={item._id}
-                                checked={isHomeTeam(item.id)}
-                                onClick={e => setGameTeams({...gameTeams,homeTeam:item.id})}/>
-                                <span>Home </span>
+                                <input class="with-gap" type="radio" name="hometeam" className="home-check-space" value={item._id} checked={isHomeTeam(item.id)} onClick={e => setGameTeams({...gameTeams,homeTeam:item.id})}/>
+                                {homeTeamButton(item)}
                                 </label>
                             </div>
 
@@ -151,7 +192,7 @@ return (
                                 value={item._id}
                                 checked={isOppTeam(item.id)}
                                 onClick={e => setGameTeams({...gameTeams,oppTeam:item.id})}/>
-                                <span> Visitor </span>
+                                {oppTeamButton(item)}
                                 </label>
                             </div>
                         </div>
@@ -175,8 +216,7 @@ return (
             {(gameData.gameId && gameData.game) ? (
                 <div className="row">        
                     <div className="col s6 m6 I6">
-                        <h5> Home Team </h5>
-                        <h5> {getTeamName(gameData.home_team_id)} </h5>
+                    <h5> {gameData.homeTeamName} </h5>
                     {gameData.game.home_team_players.length ? (
                     <ul>
                         {gameData.game.home_team_players.map(item => {
@@ -194,8 +234,7 @@ return (
                     </div>
                     
                     <div className="col s6 m6 I6">
-                    <h5> Opposing Team </h5>
-                    <h5> {getTeamName(gameData.opp_team_id)} </h5>
+                    <h5> {gameData.oppTeamName} </h5>
                     {gameData.game.opp_team_players.length ? (
                     <ul>
                         {gameData.game.opp_team_players.map(item => {
@@ -207,7 +246,7 @@ return (
                         )
                         })}
                     </ul>) : (
-                        <h6> No opposing team data </h6>
+                        <h6> No visiting team data </h6>
                     )}
                     <h5> Total Score {gameData.oppTeamTotal}</h5>
                     </div>
