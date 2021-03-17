@@ -212,7 +212,6 @@ return (
         <div className="row">
         <div className="col s6">
             <h5> Game Results </h5>
-            <h5> {gameData.winningTeamName} Wins! </h5>
             {(gameData.gameId && gameData.game) ? (
                 <div className="row">        
                     <div className="col s6 m6 I6">
